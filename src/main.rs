@@ -26,10 +26,10 @@ async fn read_sub() -> impl IntoResponse {
 
 async fn create_config_files() {
     let file_path = env::var("FILE_PATH").unwrap_or_else(|_| "./tmp".to_string());
-    let uuid = env::var("91c69af2-8227-4c11-90bf-1882fab980d2").unwrap_or_default();
+    let uuid = env::var("UUID").unwrap_or_default();
     let argo_port = env::var("ARGO_PORT").unwrap_or_else(|_| "8080".to_string()); 
-    let argo_auth = env::var("eyJhIjoiZTQ4MzQwMzhhZWE1ZDM1MzQyN2E1YWI5YTA0NmVmMzQiLCJ0IjoiNDg1MmI1YmUtYWQ5Mi00NjIwLTgyMjItNGJkYjY3M2NiYTY1IiwicyI6Ik5qRmhPVE16TWpZdE4yUXhNeTAwTkRBMkxXSTJPRGt0T0dFNU5qRm1OVFpsWkRBeCJ9").unwrap_or_default();
-    let argo_domain = env::var("shuttle0920.gersvde.eu.org").unwrap_or_default();
+    let argo_auth = env::var("ARGO_AUTH").unwrap_or_default();
+    let argo_domain = env::var("ARGO_DOMAIN").unwrap_or_default();
     
     if !Path::new(&file_path).exists() {
         fs::create_dir_all(&file_path).expect("Failed to create directory");
